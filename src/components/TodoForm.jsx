@@ -1,6 +1,6 @@
-import React,{ useState } from 'react'
+import React,{ useEffect, useState } from 'react'
 
-const TodoForm = ({ todos,setTodos,filter,setFilter }) => {
+const TodoForm = ({ todos,setTodos,filter,setFilter,editedTodo,setEditedTodo }) => {
     const [title, setTitle] = useState('')
     const [description,setDescription] = useState('')
     const [error, setError] = useState('')
@@ -8,22 +8,37 @@ const TodoForm = ({ todos,setTodos,filter,setFilter }) => {
     const handleSubmit = (e) =>{
         e.preventDefault()
 
-        if(!title.trim() || !description.trim()){
-          setError('Both Feild Required')
-          return
-        } 
-        setTodos([
-        ...todos,
-        {
-            id:crypto.randomUUID(),
-            title,
-            description,
-            completed:false
+        if (editedTodo){
+          setTodos(
+            todos.map((todo)=> todo.id === editedTodo.id ? {...todo,title,description} : todo)
+          )
         }
-        ])
+        else{
+            if(!title.trim() || !description.trim()){
+              setError('Both Feild Required')
+              return
+            } 
+            setTodos([
+            ...todos,
+            {
+              id:crypto.randomUUID(),
+              title,
+              description,
+              completed:false
+            }
+            ])
+        }
         setTitle('')
         setDescription('')
-    }
+        setEditedTodo(null)
+      }
+      useEffect(()=>{
+        if(editedTodo){
+          setTitle(editedTodo.title)
+          setDescription(editedTodo.description) 
+        }
+      },[editedTodo])
+
   return (
     <>
         <form onSubmit={handleSubmit} className='flex flex-col h-auto w-1/2 p-5'>
@@ -58,8 +73,8 @@ const TodoForm = ({ todos,setTodos,filter,setFilter }) => {
               onClick={()=>setFilter('completed')}>Completed
             </button>
           </div><br/>
-          <p>{error}</p><br/>
-          <button className='w-auto px-2 py-2 rounded bg-white text-black font-bold text-lg'>Add Todo</button>
+          <p className='text-shadow-red-500 font-medium'>{error}</p><br/>
+          <button className='w-auto px-2 py-2 rounded bg-white text-black font-bold text-lg'>{editedTodo ? 'Update Todo' : 'Add Todo'}</button>
       </form>
     </>
   )
