@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import TodoForm from './components/TodoForm'
+import TodoCard from './components/TodoCard'
 
 const App = () => {
   const [todos, setTodos] = useState([
@@ -22,8 +23,9 @@ const App = () => {
       completed: false
     }
   ])
-  // const [title, setTitle] = useState('')
+  const [filter, setFilter] = useState('all')
 
+  // const [title, setTitle] = useState('')
   // const handleSubmit = (e) =>{
   //   e.preventDefault()
 
@@ -38,27 +40,31 @@ const App = () => {
   //   setTitle('')
   // }
 
-  const deleteTodo = (idx)=>{
-    const copyTodo = [...todos]
-    copyTodo.splice(idx,1)
-    setTodos(copyTodo)
+  const deleteTodo = (id)=>{
+    setTodos(
+      todos.filter(todo => todo.id !== id)
+    )
   }
 
   const toggleStatus=(id)=>{
-    // const newCopyTodo = [...todos]
-    // newCopyTodo.map((todo)=>{
-    //   if(todo.id === id) {
-    //     todo.completed = !todo.completed
-    //   }
-    // })
-    // setTodos(newCopyTodo)
-
     setTodos(
       todos.map((todo)=>
         todo.id === id ? {...todo,completed:!todo.completed} : todo
       )
     )
   }
+
+  let filterTodos;
+
+  if(filter === 'all'){
+    filterTodos = todos;
+  }else if(filter === 'pending'){
+    filterTodos = todos.filter(todo => !todo.completed)
+  }else if(filter === 'completed'){
+    filterTodos = todos.filter(todo => todo.completed)
+  }
+
+
   return (
     <div className='h-screen bg-black text-white flex flex-col lg:flex-row'>
 
@@ -76,34 +82,21 @@ const App = () => {
       <TodoForm 
         todos={todos}
         setTodos={setTodos}  
+        filter={filter}
+        setFilter={setFilter}
       />
 
       <div className='h-auto w-1/2 border-l-2 border-white flex flex-col p-5 overflow-auto'>
         <h1 className='text-4xl font-bold pb-5'>Recent Todos</h1>
         <div className='flex flex-wrap gap-4'>
-          {todos.map((elem, idx) => (
-          <div key={idx} className={` ${elem.completed ? 'opacity-40' : ''} h-70 w-55  bg-white text-black rounded-xl p-4 font-medium flex flex-col justify-between`}>
-
-            <h1 className='text-lg font-bold'>{elem.title}</h1>
-            <p className='font-stretch-50% text-gray-600'>{elem.description}</p>
-            <div className='flex flex-col gap-2'>
-                <button 
-                  className={`px-2 py-1 ${elem.completed ? 'bg-green-500':'bg-red-500'} text-white rounded w-full`}
-                  onClick={()=>toggleStatus(elem.id)}>
-                  {elem.completed ? 'Completed' : 'Pending'}
-                </button>
-
-                <button 
-                  className='px-2 py-1 bg-blue-500 text-white rounded w-full'>Edit
-                </button>
-
-                <button 
-                  className='px-2 py-1 bg-red-500 text-white rounded w-full' onClick={()=>deleteTodo(idx)}>Delete
-                </button>
-            </div>
-
-          </div>
-        ))}
+          {filterTodos.map((todo) => (
+              <TodoCard
+                todo={todo}
+                key={todo.id}
+                toggleStatus={toggleStatus}
+                deleteTodo={deleteTodo}
+              />
+          ))}
         </div>
       </div>
 

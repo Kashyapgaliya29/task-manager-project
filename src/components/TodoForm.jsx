@@ -1,12 +1,17 @@
 import React,{ useState } from 'react'
 
-const TodoForm = ({ todos,setTodos}) => {
+const TodoForm = ({ todos,setTodos,filter,setFilter }) => {
     const [title, setTitle] = useState('')
     const [description,setDescription] = useState('')
+    const [error, setError] = useState('')
 
     const handleSubmit = (e) =>{
         e.preventDefault()
 
+        if(!title.trim() || !description.trim()){
+          setError('Both Feild Required')
+          return
+        } 
         setTodos([
         ...todos,
         {
@@ -36,6 +41,24 @@ const TodoForm = ({ todos,setTodos}) => {
             value={description}
             onChange={(e)=>setDescription(e.target.value)}
           /><br/>
+          <div className='flex gap-2'>
+            <button 
+              className={`px-5 py-2 ${filter === 'all' ? 'bg-blue-500' : 'bg-gray-500'} rounded text-lg font-medium`} 
+              type='button' 
+              onClick={()=>setFilter('all')}>All
+            </button>
+            <button 
+              className={`px-5 py-2 ${filter === 'pending' ? 'bg-blue-500' : 'bg-gray-500'} rounded text-lg font-medium`} 
+              type='button' 
+              onClick={()=>setFilter('pending')}>Pending
+            </button>
+            <button 
+              className={`px-5 py-2 ${filter === 'completed' ? 'bg-blue-500' : 'bg-gray-500'} rounded text-lg font-medium`} 
+              type='button' 
+              onClick={()=>setFilter('completed')}>Completed
+            </button>
+          </div><br/>
+          <p>{error}</p><br/>
           <button className='w-auto px-2 py-2 rounded bg-white text-black font-bold text-lg'>Add Todo</button>
       </form>
     </>
