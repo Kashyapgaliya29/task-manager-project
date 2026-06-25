@@ -9,7 +9,7 @@ const FilterBar = ({ filter,setFilter }) => {
             {filterButtons.map(btn =>
               <button 
               key={btn}
-              className={`px-5 py-2 ${filter === btn ? 'bg-[#6366f1]' : 'bg-[#1E293B]'} rounded-lg text-lg font-medium active:scale-110`} 
+              className={`px-5 py-1.5 ${filter === btn ? 'bg-[#6366f1]' : 'bg-[#1E293B]'} rounded-full text-[15px] font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-zinc-200 hover:border-zinc-700 active:bg-indigo-600`} 
               type='button' 
               onClick={()=>setFilter(btn)}>{btn.charAt(0).toUpperCase() + btn.slice(1)}</button>
             )}
