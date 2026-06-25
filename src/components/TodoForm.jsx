@@ -44,8 +44,8 @@ const TodoForm = ({ todos,setTodos,filter,setFilter,editedTodo,setEditedTodo }) 
 
   return (
     <>
-        <form onSubmit={handleSubmit} className='flex flex-col h-auto w-1/2 p-5'>
-          <h1 className='text-4xl font-bold'>{editedTodo ? 'Editing Todo' : 'Add Todo'}</h1><br/>
+        <form onSubmit={handleSubmit} className='flex flex-col h-auto w-full lg:w-1/2 p-5'>
+          <h1 className='text-4xl font-bold'>{editedTodo ? 'Editing Task' : 'Add Task'}</h1><br/>
           <input
             className='h-13 rounded-lg border-2 border-zinc-700 bg-zinc-900 px-3 text-white' 
             type="text" 
@@ -66,7 +66,7 @@ const TodoForm = ({ todos,setTodos,filter,setFilter,editedTodo,setEditedTodo }) 
             onChange={(e)=>setDueDate(e.target.value)} 
           /><br/>
           <p className='text-red-500 font-medium px-2'>{error}</p><br/>
-          <button className='w-auto px-2 py-2 rounded bg-white text-black font-bold text-xl active:scale-101'>{editedTodo ? 'Update Todo' : 'Add Todo'}</button>
+          <button className='w-auto px-2 py-2 rounded bg-white text-black font-bold text-xl active:scale-101'>{editedTodo ? 'Update Taks' : 'Add Task'}</button>
       </form>
     </>
   )
