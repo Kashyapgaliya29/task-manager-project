@@ -66,7 +66,7 @@ const TodoForm = ({ todos,setTodos,filter,setFilter,editedTodo,setEditedTodo }) 
             onChange={(e)=>setDueDate(e.target.value)} 
           /><br/>
           <p className='text-red-500 font-medium px-2'>{error}</p><br/>
-          <button className='w-auto px-2 py-2 rounded bg-white text-black font-bold text-xl active:scale-101'>{editedTodo ? 'Update Taks' : 'Add Task'}</button>
+          <button className='w-auto px-2 py-2 rounded bg-white text-black font-bold text-xl active:scale-101'>{editedTodo ? 'Update Taks' : ' + Add Task'}</button>
       </form>
     </>
   )

@@ -71,7 +71,7 @@ const App = () => {
 
   if (isDesktop) {
     return (
-      <div className='h-screen bg-black text-white flex flex-col lg:flex-row'>
+        <div className='h-screen bg-[#1d2533] text-white flex flex-col lg:flex-row'>
 
         {/* <TodoForm 
         todos={todos}
@@ -119,9 +119,7 @@ const App = () => {
           deleteTodo={deleteTodo}
           setEditedTodo={setEditedTodo}
         />
-
-
-      </div>
+        </div>
     )
   } else {
     return (
