@@ -8,7 +8,7 @@ const TaskStats = ( { todos,todayDate } ) => {
 
   return (
     <>
-        <div className='grid grid-cols-2 lg:flex gap-5 pt-8 w-full'>
+        <div className='grid grid-cols-2 lg:flex gap-5 pt-5 w-full'>
             {/* <p className='text-xl font-bold'>📋 Total : {totalTask}</p> */}
             {/* <p className='text-xl font-bold'>⏳ Pending : {pendingTasks}</p>
             <p className='text-xl font-bold'>✅ Completed : {completedTasks}</p>

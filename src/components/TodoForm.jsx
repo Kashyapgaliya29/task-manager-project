@@ -45,7 +45,9 @@ const TodoForm = ({ todos,setTodos,filter,setFilter,editedTodo,setEditedTodo }) 
   return (
     <>
         <form onSubmit={handleSubmit} className='flex flex-col h-auto w-full lg:w-1/2 p-5'>
-          <h1 className='text-4xl font-bold'>{editedTodo ? 'Editing Task' : 'Add Task'}</h1><br/>
+          <h1 className='text-4xl font-bold'>{editedTodo ? 'Editing Task' : 'Add Task'}</h1>
+          <p className='text-sm text-zinc-400 font-normal leading-relaxed'>Create tasks, set deadlines, and stay organized.</p>
+          <div className="h-1 w-20 bg-[#6366f1] rounded-full mt-2 shadow-sm shadow-indigo-500/50"></div><br/>
           <input
             className='h-13 rounded-lg border-2 border-zinc-700 bg-zinc-900 px-3 text-white' 
             type="text" 
