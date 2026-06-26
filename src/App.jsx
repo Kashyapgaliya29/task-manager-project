@@ -71,55 +71,57 @@ const App = () => {
 
   if (isDesktop) {
     return (
-        <div className='h-screen bg-[#1d2533] text-white flex flex-col lg:flex-row'>
+        <div className='min-h-screen bg-[#141b26] p-6 scrollbar-none'>
+          <div className='h-[92vh] rounded-3xl bg-[#1d2533] text-white flex flex-col lg:flex-row'>
 
-        {/* <TodoForm 
-        todos={todos}
-        setTodos={setTodos}  
-        editedTodo={editedTodo}
-        setEditedTodo={setEditedTodo}
-      /> */}
-
-        <CreteTask
+          {/* <TodoForm 
           todos={todos}
-          setTodos={setTodos}
+          setTodos={setTodos}  
           editedTodo={editedTodo}
           setEditedTodo={setEditedTodo}
-        />
+        /> */}
 
-        {/* <div className='h-auto w-full border-l-0 px-10 flex lg:w-1/2 lg:border-l-2 lg:border-white flex-col p-5 overflow-auto scrollbar-none'>
+          <CreteTask
+            todos={todos}
+            setTodos={setTodos}
+            editedTodo={editedTodo}
+            setEditedTodo={setEditedTodo}
+          />
 
-        <h1 className='text-4xl font-bold'>Recent Todos</h1>
+          {/* <div className='h-auto w-full border-l-0 px-10 flex lg:w-1/2 lg:border-l-2 lg:border-white flex-col p-5 overflow-auto scrollbar-none'>
 
-        <TaskStats
-          todos={todos}
-          todayDate={todayDate}
-        />
+          <h1 className='text-4xl font-bold'>Recent Todos</h1>
 
-        <FilterBar
-          filter={filter}
-          setFilter={setFilter}
-        />
-        
-        <TodoList
-          filterTodos={filterTodos}
-          toggleStatus={toggleStatus}
-          deleteTodo={deleteTodo} 
-          setEditedTodo={setEditedTodo}
-        />
-      </div> */}
+          <TaskStats
+            todos={todos}
+            todayDate={todayDate}
+          />
 
-        <Task
-          todos={todos}
-          todayDate={todayDate}
-          filter={filter}
-          setFilter={setFilter}
-          filterTodos={filterTodos}
-          toggleStatus={toggleStatus}
-          deleteTodo={deleteTodo}
-          setEditedTodo={setEditedTodo}
-        />
-        </div>
+          <FilterBar
+            filter={filter}
+            setFilter={setFilter}
+          />
+          
+          <TodoList
+            filterTodos={filterTodos}
+            toggleStatus={toggleStatus}
+            deleteTodo={deleteTodo} 
+            setEditedTodo={setEditedTodo}
+          />
+        </div> */}
+
+          <Task
+            todos={todos}
+            todayDate={todayDate}
+            filter={filter}
+            setFilter={setFilter}
+            filterTodos={filterTodos}
+            toggleStatus={toggleStatus}
+            deleteTodo={deleteTodo}
+            setEditedTodo={setEditedTodo}
+          />
+          </div>
+        </div>  
     )
   } else {
     return (
