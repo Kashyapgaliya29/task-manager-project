@@ -11,7 +11,7 @@ const TodoCard = ({ todo,toggleStatus,deleteTodo,setEditedTodo }) => {
 
             <h1 className={`${todo.completed ? 'line-through text-zinc-600' : ''} text-2xl font-bold tracking-tight`}>{todo.title}</h1>
             <p className='font-stretch-50% text-lg text-gray-600 font-medium wrap-break-word pt-3'>{todo.description}</p>
-            <p className='text-[15px] text-zinc-300 font-normal wrap-break-words pt-2.5 leading-relaxed'>📅 Due : {new Date(todo.duedate).toLocaleDateString('en-GB')}</p>
+            <p className='text-[15px] text-zinc-300 font-medium wrap-break-words pt-2.5 leading-relaxed'>📅 Due : {new Date(todo.duedate).toLocaleDateString('en-GB')}</p>
             <div className='flex pt-5 lg:flex-row gap-2'>
                 <button 
                   className={`px-5 py-2 text-[13px] font-semibold rounded-2xl active:scale-95 ${todo.completed ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400':'bg-amber-500/10 border border-amber-500/20 text-amber-400'} text-white rounded `}
