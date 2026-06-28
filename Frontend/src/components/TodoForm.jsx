@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import {useNavigate} from 'react-router-dom'
 
 const TodoForm = ({ todos, setTodos, filter, setFilter, editedTodo, setEditedTodo }) => {
   const [title, setTitle] = useState('')
@@ -11,6 +12,8 @@ const TodoForm = ({ todos, setTodos, filter, setFilter, editedTodo, setEditedTod
     day: 'numeric',
     month: 'long'
   })
+
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -42,6 +45,7 @@ const TodoForm = ({ todos, setTodos, filter, setFilter, editedTodo, setEditedTod
     setDueDate('')
     setEditedTodo(null)
     setError('')
+    navigate('/tasks')
   }
   useEffect(() => {
     if (editedTodo) {

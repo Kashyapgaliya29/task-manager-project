@@ -14,19 +14,19 @@ const TaskStats = ( { todos,todayDate } ) => {
             <p className='text-xl font-bold'>✅ Completed : {completedTasks}</p>
             <p className='text-xl font-bold'>⚠️ Overdue : {overdueTasks}</p> */}
             <div className='h-20 min-w-30 bg-indigo-500/10 text-indigo-400 rounded-xl flex flex-col justify-between p-3 '>
-                <p className='text-xl font-bold'>📋 Total</p>
+                <p className='text-base lg:text-xl font-bold'>📋 Total</p>
                 <p className='text-xl font-bold px-2 py-1'>{totalTask}</p>
             </div>
             <div className='h-20 min-w-30 bg-amber-500/10 text-amber-400 rounded-xl flex flex-col p-2 '>
-                <p className='text-xl font-bold'>⏳ Pending</p>
+                <p className='text-base lg:text-xl font-bold'>⏳ Pending</p>
                 <p className='text-xl font-bold px-2 py-1'>{pendingTasks}</p>
             </div>
             <div className='h-20 min-w-30 bg-emerald-500/10 text-emerald-400 rounded-xl flex flex-col p-2 '>
-                <p className='text-xl font-bold'>✅ Completed</p>
+                <p className='text-base lg:text-xl font-bold'>✅ Completed</p>
                 <p className='text-xl font-bold px-2 py-1'>{completedTasks}</p>
             </div>
             <div className='h-20 min-w-30 bg-rose-500/10 text-rose-400 rounded-xl flex flex-col p-2 '>
-                <p className='text-xl font-bold'>⚠️ Overdue</p>
+                <p className='text-base lg:text-xl font-bold'>⚠️ Overdue</p>
                 <p className='text-xl font-bold px-2 py-1'>{overdueTasks}</p>
             </div>
         </div>
