@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useNavigate} from 'react-router-dom'
+import {Calendar} from 'lucide-react'
 
 const TodoForm = ({ todos, setTodos, filter, setFilter, editedTodo, setEditedTodo }) => {
   const [title, setTitle] = useState('')
@@ -74,9 +75,11 @@ const TodoForm = ({ todos, setTodos, filter, setFilter, editedTodo, setEditedTod
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         /><br />
+        <p className='flex items-center gap-2 px-1 text-zinc-400 mb-2 lg:hidden'><Calendar size={18} /> Due Date</p>
         <input
-          className='h-13 rounded-lg border-2 border-zinc-700 bg-zinc-900 px-3 text-white'
+          className='h-13 w-auto rounded-lg border-2 border-zinc-700 bg-zinc-900 px-3 text-white'
           type='date'
+          placeholder='dd-mm-yyyy'
           value={duedate}
           onChange={(e) => setDueDate(e.target.value)}
         /><br />
