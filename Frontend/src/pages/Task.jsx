@@ -28,15 +28,24 @@ const Task = ({todos,todayDate,filter,setFilter,filterTodos,toggleStatus,deleteT
               toggleStatus={toggleStatus}
               deleteTodo={deleteTodo} 
               setEditedTodo={setEditedTodo}
+              filter={filter}
             />
             </>
             ): (
+              <>
+              <FilterBar
+                filter={filter}
+                setFilter={setFilter}
+              />
+
               <TodoList
-              filterTodos={filterTodos}
-              toggleStatus={toggleStatus}
-              deleteTodo={deleteTodo} 
-              setEditedTodo={setEditedTodo}
-            />
+                filterTodos={filterTodos}
+                toggleStatus={toggleStatus}
+                deleteTodo={deleteTodo} 
+                setEditedTodo={setEditedTodo}
+                filter={filter}
+              />
+              </>
             )}
             {/* <TaskStats
               todos={todos}
