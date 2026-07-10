@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useNavigate} from 'react-router-dom'
-import {Calendar} from 'lucide-react'
+import {Calendar,FilePenLine,Type} from 'lucide-react'
 
 const TodoForm = ({ todos, setTodos, filter, setFilter, editedTodo, setEditedTodo }) => {
   const [title, setTitle] = useState('')
@@ -62,6 +62,7 @@ const TodoForm = ({ todos, setTodos, filter, setFilter, editedTodo, setEditedTod
         <h1 className='text-4xl font-bold'>{editedTodo ? 'Editing Task' : 'Add Task'}</h1>
         <p className='text-sm text-zinc-400 font-normal leading-relaxed'>Create tasks, set deadlines, and stay organized.</p>
         <div className="h-1 w-20 bg-[#6366f1] rounded-full mt-2 shadow-sm shadow-indigo-500/50"></div><br />
+        <p className='flex items-center gap-2 px-1 text-zinc-400 mb-2 lg:hidden'><Type size={18} />Title</p>
         <input
           className='h-13 rounded-lg border-2 border-zinc-700 bg-zinc-900 px-3 text-white'
           type="text"
@@ -69,6 +70,7 @@ const TodoForm = ({ todos, setTodos, filter, setFilter, editedTodo, setEditedTod
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         /><br />
+        <p className='flex items-center gap-2 px-1 text-zinc-400 mb-2 lg:hidden'><FilePenLine size={18} /> Description</p>
         <textarea
           className='h-20 rounded-lg border-2 border-zinc-700 bg-zinc-900 px-2 text-white py-2'
           placeholder='Enter Description'

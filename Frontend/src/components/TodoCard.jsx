@@ -3,10 +3,7 @@ import YesImage from '../assets/yes.png'
 import EditImage from '../assets/edit.png'
 import DeleteImage from '../assets/remove.png'
 import {useNavigate} from 'react-router-dom'
-import {Pencil} from 'lucide-react'
-import {Trash2} from 'lucide-react'
-import {CircleCheckBig} from 'lucide-react'
-
+import {Pencil,CalendarClock,Trash2,CircleCheckBig} from 'lucide-react'
 
 
 const TodoCard = ({ todo,toggleStatus,deleteTodo,setEditedTodo }) => {
@@ -18,12 +15,12 @@ const TodoCard = ({ todo,toggleStatus,deleteTodo,setEditedTodo }) => {
   }
   return (
     <>
-        <div className={` ${todo.completed ? 'opacity-40' : ''} max-h-55 p-3.5 lg:min-h-55 w-full bg-zinc-900 border border-zinc-700 text-white rounded-xl font-medium flex flex-col justify-between hover:scale-105 transation-all duration-300`}>
+        <div className={` ${todo.completed ? 'opacity-40' : ''} max-h-48 p-3.5 lg:min-h-49 w-full bg-zinc-900 border border-zinc-700 text-white rounded-xl font-medium flex flex-col justify-between items-start hover:scale-105 transation-all duration-300`}>
 
-            <h1 className={`${todo.completed ? 'line-through text-zinc-600' : ''} text-2xl font-bold tracking-tight`}>{todo.title}</h1>
-            <p className='font-stretch-50% text-lg text-gray-600 font-medium wrap-break-word pt-3'>{todo.description}</p>
-            <p className='text-[15px] text-zinc-300 font-medium wrap-break-words pt-2.5 leading-relaxed'>📅 Due : {new Date(todo.duedate).toLocaleDateString('en-GB')}</p>
-            <div className='flex pt-5 lg:flex-row gap-1.5'>
+            <h1 className={`${todo.completed ? 'line-through text-zinc-600' : ''} lg:text-2xl text-xl font-bold tracking-tight`}>{todo.title}</h1>
+            <p className='font-stretch-50% text-[15px] text-gray-600 font-medium wrap-break-word pt-3 lg:pt-0'>{todo.description}</p>
+            <p className='text-[15px] text-zinc-300 font-medium wrap-break-words pt-2.5 lg:pt-0 leading-relaxed flex items-center gap-2'><CalendarClock size={20} color='#ec2222'/>{new Date(todo.duedate).toLocaleDateString('en-GB')}</p>
+            <div className='flex pt-3 lg:pt-0 lg:flex-row gap-1.5'>
                 <button 
                   className={`px-4 py-2 text-[10px] lg:px-5 lg:py-2 lg:text-[13px] font-semibold rounded-2xl active:scale-95 ${todo.completed ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400':'bg-amber-500/10 border border-amber-500/20 text-amber-400'} text-white rounded `}
                   onClick={()=>toggleStatus(todo.id)}>
