@@ -1,15 +1,39 @@
-# 📝 Task Manager
+# Task Manager
 
-A clean and responsive Task Manager built with **React.js** to help users organize daily tasks efficiently. It allows users to create, manage, and track tasks with a simple and intuitive interface.
+A modern and responsive task management application built with **React.js** that helps users organize daily tasks efficiently. The application provides an intuitive interface to create, manage, and track tasks while improving daily productivity.
 
-## ✨ Features
+## Live Demo
 
-- Add, edit, and delete tasks
-- Mark tasks as completed
-- Filter tasks (All, Pending, Completed)
-- View task statistics
-- Automatically saves tasks using Local Storage
-- Responsive design for desktop and mobile
+🔗 https://task-manager-project-jade.vercel.app
+
+---
+
+## Features
+
+- **Today View** – View tasks relevant to the current day with a daily progress indicator.
+- **Task Management** – Create, edit, delete, and mark tasks as completed.
+- **Rich Task Details** – Manage task titles, descriptions, due dates, and completion status.
+- **Task Filtering** – Filter tasks by All, Today, Pending, or Completed.
+- **Persistent Storage** – Tasks are automatically saved using the browser's Local Storage.
+- **Responsive Design** – Optimized for both desktop and mobile devices.
+
+---
+
+## React Concepts Used
+
+- Functional Components
+- JSX
+- Props
+- State Management (`useState`)
+- Side Effects (`useEffect`)
+- Component Composition
+- Conditional Rendering
+- Event Handling
+- List Rendering using `map()`
+- Array Manipulation using `filter()`
+- Browser Local Storage Integration
+
+---
 
 ## 🛠️ Tech Stack
 
@@ -19,16 +43,14 @@ A clean and responsive Task Manager built with **React.js** to help users organi
 - CSS3
 - Local Storage API
 
-## 🚀 Getting Started
+---
 
-```bash
-npm install
-npm run dev
-```
-## 👨‍💻 Author
+## Future Improvements
 
-**Kashyap Galiya**
-
-## 🔗 Live Demo
-
-👉 task-manager-project-jade.vercel.app
+- User Authentication
+- Backend Integration with Node.js, Express.js, and MongoDB
+- Due Date Reminder Notifications
+- Task Categories & Priority Levels
+- Search and Sorting Functionality
+- Dark Mode
+---
