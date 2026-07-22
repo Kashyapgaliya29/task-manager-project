@@ -31,4 +31,4 @@ npm run dev
 
 ## 🔗 Live Demo
 
-👉 https://your-live-demo.vercel.app
+👉 task-manager-project-jade.vercel.app
